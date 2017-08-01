@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+    </dependencies>
+    <scenes>
+        <!--Reminder Table Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="ReminderTableInterfaceController" customModule="RemindMe_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="scW-Yi-TkM">
+                            <items>
+                                <tableRow identifier="ReminderRow" id="gkR-cx-Oax" customClass="ReminderRowController" customModule="RemindMe_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="MQ3-hN-36h">
+                                        <items>
+                                            <separator height="1" alignment="left" verticalAlignment="center" id="tN9-y7-zNb">
+                                                <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                            </separator>
+                                            <group alignment="left" layout="vertical" spacing="0.0" id="HGg-OL-BuJ">
+                                                <items>
+                                                    <label alignment="left" text="Name" id="dh3-fZ-6zA">
+                                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                                        <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                    </label>
+                                                    <label alignment="left" text="Duration" id="rwG-h6-zU7">
+                                                        <fontDescription key="font" type="system" weight="thin" pointSize="14"/>
+                                                    </label>
+                                                </items>
+                                                <edgeInsets key="margins" left="6" right="0.0" top="0.0" bottom="0.0"/>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="reminderDurationLabel" destination="rwG-h6-zU7" id="veB-jN-jc5"/>
+                                        <outlet property="reminderNameLabel" destination="dh3-fZ-6zA" id="Lhf-ci-nvC"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="remindersTable" destination="scW-Yi-TkM" id="OzU-UE-Hh8"/>
+                    </connections>
+                </controller>
+            </objects>
+        </scene>
+        <!--Reminder-->
+        <scene sceneID="4C3-1T-oD4">
+            <objects>
+                <controller identifier="Reminder" id="bei-wv-roR" customClass="ReminderInterfaceController" customModule="RemindMe_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="Gcl-5Q-ffk">
+                            <items>
+                                <label alignment="left" text="Name" id="Ub4-ha-R2g">
+                                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                </label>
+                                <label alignment="left" text="Duration" id="9Ok-5A-OsG"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" verticalAlignment="center" layout="vertical" id="SqW-pf-wvi">
+                            <items>
+                                <label alignment="left" text="Stage" id="7Vt-tn-UMT">
+                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </label>
+                                <timer alignment="left" id="xj5-9s-z9e"/>
+                            </items>
+                            <edgeInsets key="margins" left="10" right="0.0" top="0.0" bottom="0.0"/>
+                        </group>
+                        <group width="1" alignment="left" verticalAlignment="bottom" id="HMo-IO-Z0G">
+                            <items>
+                                <button width="1" alignment="left" title="Button" id="hvF-yG-BZC">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="actionButtonClicked" destination="bei-wv-roR" id="OzO-xQ-RcA"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="actionButton" destination="hvF-yG-BZC" id="Tff-Ly-vIY"/>
+                        <outlet property="interfaceTimer" destination="xj5-9s-z9e" id="oYJ-wo-LpA"/>
+                        <outlet property="reminderDurationLabel" destination="9Ok-5A-OsG" id="vLM-31-f8E"/>
+                        <outlet property="reminderNameLabel" destination="Ub4-ha-R2g" id="cuN-hU-AkP"/>
+                        <outlet property="stageNameLabel" destination="7Vt-tn-UMT" id="FNl-iP-K3H"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="416" y="37"/>
+        </scene>
+    </scenes>
+</document>
